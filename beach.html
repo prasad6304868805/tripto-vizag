@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tripto • Beach Journey</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#f8fafc,#eef2f3);
+}
+
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+.back-btn {
+  padding: 10px 22px;
+  background: linear-gradient(135deg,#ff7a18,#ffb347);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .35s;
+}
+.back-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255,150,50,.6);
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 70vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 90px;
+  color: white;
+}
+.hero h1 {
+  font-size: 58px;
+  text-shadow: 0 8px 25px rgba(0,0,0,.6);
+}
+.hero p {
+  font-size: 22px;
+  max-width: 650px;
+  opacity: .95;
+}
+
+/* ================= TITLE ================= */
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 80px 0 50px;
+  color: #ff7a18;
+}
+
+/* ================= VERTICAL CARDS ================= */
+.map-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px 40px;
+}
+
+.map-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,.92);
+  border-radius: 22px;
+  padding: 20px;
+  margin-bottom: 35px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.12);
+  transition: .35s;
+}
+
+.map-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 65px rgba(0,0,0,.2);
+}
+
+/* Alternate left-right */
+.map-card:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.map-card img {
+  width: 45%;
+  height: 230px;
+  border-radius: 18px;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.map-card:hover img {
+  transform: scale(1.06);
+}
+
+.map-card .content {
+  width: 50%;
+}
+
+.map-card h2 {
+  font-size: 26px;
+  color: #ff7a18;
+  margin-bottom: 8px;
+}
+
+.map-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ================= BUTTONS ================= */
+.book-btn, .custom-btn {
+  display: block;
+  width: 240px;
+  margin: 1.8rem auto;
+  padding: 15px 0;
+  background: linear-gradient(135deg,#ff7a18,#ffb347);
+  color: white;
+  font-weight: 700;
+  border-radius: 50px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: .4s;
+}
+.book-btn:hover, .custom-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255,122,24,.6);
+}
+
+/* ================= POPUP ================= */
+.popup-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+.popup-box {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  width: 340px;
+  text-align: center;
+}
+.popup-btns {
+  display: flex;
+  gap: 10px;
+}
+.popup-btn-call {
+  flex: 1;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+}
+.popup-btn-cancel {
+  flex: 1;
+  background: #ff7a18;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #060606;
+  padding: 50px 20px;
+  color: white;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+footer h3 { color: #ff7a18; }
+footer a { color: #cfcfcf; text-decoration: none; }
+.copy {
+  text-align: center;
+  margin-top: 35px;
+  color: #777;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px) {
+  .map-card,
+  .map-card:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+  .map-card img,
+  .map-card .content {
+    width: 100%;
+  }
+  .hero h1 { font-size: 38px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">VIZAG TRIPTO</div>
+  <a href="index.html" class="back-btn">⬅ Back</a>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Beach Journey</h1>
+    <p>Explore Vizag’s most beautiful beaches one by one</p>
+  </div>
+</section>
+
+<h2 class="section-title">Trip Destinations</h2>
+
+<div class="map-container">
+
+  <div class="map-card">
+    <img src="b1.jpeg">
+    <div class="content">
+      <h2>Bheemiili</h2>
+      <p>Start your journey with a magical sunrise by the waves.</p>
+    </div>
+  </div>
+
+  <div class="map-card">
+    <img src="b2.jpeg">
+    <div class="content">
+      <h2>Thotlakonda</h2>
+      <p>Peaceful coastal views blended with history.</p>
+    </div>
+  </div>
+
+  <div class="map-card">
+    <img src="b3.jpeg">
+    <div class="content">
+      <h2>Rushikonda</h2>
+      <p>Golden sands, surfing, and lively beach vibes.</p>
+    </div>
+  </div>
+
+  <div class="map-card">
+    <img src="b4.jpeg">
+    <div class="content">
+      <h2>Kailasgiri</h2>
+      <p>Panoramic hilltop views of the endless sea.</p>
+    </div>
+  </div>
+
+  <div class="map-card">
+    <img src="b5.jpeg">
+    <div class="content">
+      <h2>Tenneti Park</h2>
+      <p>Green landscapes meeting the ocean breeze.</p>
+    </div>
+  </div>
+
+  <div class="map-card">
+    <img src="b6.jpeg">
+    <div class="content">
+      <h2>RK Beach</h2>
+      <p>End your day with food, lights, and waves.</p>
+    </div>
+  </div>
+
+</div>
+
+<button class="book-btn" onclick="window.location.href='booking.html'">Book Now</button>
+<button class="custom-btn" onclick="window.location.href='customize.html'">Customize</button>
+
+<!-- POPUP -->
+<div class="popup-bg" id="popup">
+  <div class="popup-box">
+    <h3>Confirm Booking</h3>
+    <p>Talk to our executive to continue</p>
+    <div class="popup-btns">
+      <button class="popup-btn-call" onclick="callNow()">📞 Call</button>
+      <button class="popup-btn-cancel" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPopup(){ popup.style.display = "flex"; }
+function closePopup(){ popup.style.display = "none"; }
+function callNow(){ window.location.href = "tel:9885096787"; }
+</script>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="#">Plans</a></p>
+      <p><a href="#">Beach Trips</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>📞 +91 98850 96787</p>
+      <p>✉️ triptotrvl@gmail.com</p>
+    </div>
+    <div>
+      <h3>Follow Us</h3>
+      <p>Facebook</p>
+      <p>Instagram</p>
+    </div>
+  </div>
+  <div class="copy">© 2025 TRIPTO. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
