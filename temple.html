@@ -6,7 +6,7 @@
 <title>Tripto • Temple Trip</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 *{box-sizing:border-box}
 
@@ -50,19 +50,19 @@ header h2{
 }
 .back-btn:hover{transform:scale(1.08)}
 
-/* ================= COVER PHOTO (NEW) ================= */
+/* ================= COVER PHOTO ================= */
 .cover-photo{
   width:100%;
   height:65vh;
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.25)),
-    url("simh.jpeg") center/cover no-repeat;
-    
+    url("https://images.unsplash.com/photo-1602516221911-9c2b92d3f37d?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding-top:90px;
+  padding-top:70px;
 }
 
 .cover-photo h1{
@@ -75,16 +75,16 @@ header h2{
 .cover-photo p{
   font-size:22px;
   color:#ffe082;
-}}
+}
 
 /* ================= TOUR SECTION ================= */
 .tour-container{
-  max-width:900px;   /* SAME AS BEACH PAGE */
+  max-width:900px;
   margin:0 auto 90px;
   padding:0 25px;
 }
 
-/* ================= TOUR CARD (MATCH BEACH SIZE) ================= */
+/* ================= TOUR CARD (RESTORED SIZE) ================= */
 .tour-card{
   display:flex;
   align-items:center;
@@ -107,13 +107,13 @@ header h2{
 
 .tour-card img{
   width:45%;
-  height:170px;        /* SAME HEIGHT AS BEACH */
+  height:170px;
   object-fit:cover;
 }
 
 .tour-info{
   width:55%;
-  padding:1.2rem 1.6rem;
+  padding:1.4rem 1.8rem;
 }
 
 .tour-info h2{
@@ -132,7 +132,7 @@ header h2{
 .action-btn{
   display:block;
   width:220px;
-  margin:1.6rem auto;
+  margin:1.8rem auto;
   padding:14px 0;
   background:linear-gradient(135deg,#ffcc00,#ffb300);
   color:#1a1a27;
@@ -145,47 +145,9 @@ header h2{
   transition:.3s;
   box-shadow:0 6px 20px rgba(0,0,0,.25);
 }
+
 .action-btn:hover{
   transform:scale(1.08);
-}
-
-/* ================= POPUP ================= */
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(6px);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.popup-content{
-  background:#fff7e6;
-  padding:35px 45px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.popup-btn{
-  margin:12px;
-  padding:12px 32px;
-  border-radius:40px;
-  font-size:18px;
-  font-weight:700;
-  border:none;
-  cursor:pointer;
-}
-
-.popup-btn.call{
-  background:#ffcc00;
-  color:#1a1a27;
-}
-
-.popup-btn.close{
-  background:#ff5252;
-  color:white;
 }
 
 /* ================= FOOTER ================= */
@@ -286,14 +248,6 @@ footer p{color:#ddd}
   </div>
 
   <div class="tour-card">
-    <img src="t6.jpeg">
-    <div class="tour-info">
-      <h2>TTD Sri Venkateswara Swamy Divya Kshetram</h2>
-      <p>Tirumala-style temple with divine energy.</p>
-    </div>
-  </div>
-
-  <div class="tour-card">
     <img src="t7.jpeg">
     <div class="tour-info">
       <h2>Simhachalam Temple</h2>
@@ -301,18 +255,9 @@ footer p{color:#ddd}
     </div>
   </div>
 
-<button class="book-btn" onclick="window.location.href='booking.html'">Book Now</button>
-<button class="custom-btn" onclick="window.location.href='customize.html'">Customize</button>
+  <button class="action-btn" onclick="location.href='booking.html'">Book Now</button>
+  <button class="action-btn" onclick="location.href='customize.html'">Customize Trip</button>
 
-</div>
-
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h2>Confirm Booking</h2>
-    <p>Talk to our executive to continue.</p>
-    <button class="popup-btn call" onclick="callNow()">📞 Call Now</button>
-    <button class="popup-btn close" onclick="closePopup()">Cancel</button>
-  </div>
 </div>
 
 <footer>
@@ -336,12 +281,6 @@ footer p{color:#ddd}
   </div>
   <p class="copy">© 2025 TRIPTO. All rights reserved.</p>
 </footer>
-
-<script>
-function openPopup(){popup.style.display="flex"}
-function closePopup(){popup.style.display="none"}
-function callNow(){window.location.href="tel:9885096787"}
-</script>
 
 </body>
 </html>
